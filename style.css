@@ -1,0 +1,119 @@
+/* 锦官道与禅 - 东方美学精修样式 */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Noto+Serif+SC:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-paper: #FAF8F2;
+  --color-card: #FFFFFF;
+  --color-ink: #1B211E;
+  --color-tao: #1E4E54;
+  --color-zen: #2D5A3F;
+  --color-confucian: #965A20;
+  --color-cinnabar: #B93826;
+  --color-border: #E8E2D4;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  background-image: 
+    radial-gradient(circle at 10% 15%, rgba(30, 78, 84, 0.03) 0%, transparent 20%),
+    radial-gradient(circle at 90% 85%, rgba(45, 90, 63, 0.03) 0%, transparent 25%);
+  background-attachment: fixed;
+}
+
+.font-serif-sc {
+  font-family: 'Noto Serif SC', SimSun, "Songti SC", serif;
+}
+
+.font-classical {
+  font-family: 'Cinzel', serif;
+}
+
+/* 宣纸古韵卡片 */
+.card-paper {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 16px -2px rgba(35, 30, 20, 0.04), 0 2px 4px -1px rgba(35, 30, 20, 0.02);
+  transition: all 0.25s ease;
+}
+
+.card-paper:hover {
+  box-shadow: 0 10px 24px -4px rgba(35, 30, 20, 0.07);
+}
+
+/* 朱砂印章 */
+.chinese-seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--color-cinnabar);
+  color: var(--color-cinnabar);
+  border-radius: 4px;
+  font-weight: 700;
+  line-height: 1;
+  padding: 3px 6px;
+  letter-spacing: 2px;
+  font-family: 'Noto Serif SC', serif;
+  background-color: rgba(185, 56, 38, 0.04);
+}
+
+/* 缓转太极 */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow {
+  animation: spin-slow 24s linear infinite;
+}
+
+/* 签筒晃动 */
+@keyframes shake-cup {
+  0% { transform: rotate(0deg) translateY(0); }
+  25% { transform: rotate(-8deg) translateY(-10px); }
+  50% { transform: rotate(8deg) translateY(-16px); }
+  75% { transform: rotate(-6deg) translateY(-8px); }
+  100% { transform: rotate(0deg) translateY(0); }
+}
+.animating-shake {
+  animation: shake-cup 0.75s ease-in-out infinite;
+}
+
+/* PPT 幻灯片 */
+.ppt-slide {
+  display: none;
+  opacity: 0;
+  transform: translateX(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.ppt-slide.active {
+  display: block;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* 语言切换控制：直观且100%保证全站生效 */
+html[data-lang="zh"] .lang-en {
+  display: none !important;
+}
+
+html[data-lang="en"] .lang-zh {
+  display: none !important;
+}
+
+html[data-lang="bi"] .lang-zh,
+html[data-lang="bi"] .lang-en {
+  display: block !important;
+}
+
+/* 部位标签 */
+.zodiac-badge {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.zodiac-badge:hover,
+.zodiac-badge.active {
+  background-color: #1E4E54 !important;
+  color: #FFFFFF !important;
+  border-color: #1E4E54 !important;
+}
