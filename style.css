@@ -290,3 +290,5 @@ html[data-lang="bi"] .lang-en { display: block !important; }
   color: #FFFFFF !important;
   border-color: #1E4E54 !important;
 }
+.spot-chip{padding:.8rem .75rem;border:1px solid #e8e2d4;border-radius:.75rem;background:#fff;font-family:"Noto Serif SC",serif;font-weight:700;color:#1b211e;box-shadow:0 3px 10px rgba(35,30,20,.05)}
+.spot-chip small{display:block;margin-top:.25rem;font-family:inherit;font-size:.68rem;font-weight:400;color:#78716c}
