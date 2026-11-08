@@ -11,7 +11,7 @@
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
   
-  <link rel="stylesheet" href="./style.css?v=20261108d">
+  <link rel="stylesheet" href="./style.css?v=20261108e">
   <script>
     tailwind.config = {
       theme: {
@@ -967,52 +967,200 @@
         </div>
       </div>
 
-      <!-- 一分钟三教合一总结表格 -->
-      <div class="bg-stone-800 p-6 rounded-2xl border border-stone-700">
-        <h4 class="font-serif-sc font-bold text-xl text-white mb-3">
-          <span class="lang-zh">一分钟搞定：普通中国人的一周心智切换表</span>
-          <span class="lang-en">The Three Inner Compasses: A Week in Motion</span>
-        </h4>
-        <p class="text-stone-300 text-xs sm:text-sm mb-4">
-          <span class="lang-zh">中国人不是二选一，而是把三者当成三个手机App，随时切换：</span>
-          <span class="lang-en">Most people carry all three like a travel kit: a compass for duty, a river map for detours, and a quiet teacup for the mind:</span>
+      <!-- 一分钟三教合一总结板块 (移动端卡片化 · 桌面端大表格 · 体验完美适配) -->
+      <div class="bg-stone-800 p-5 sm:p-7 rounded-2xl border border-stone-700 shadow-xl">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="chinese-seal text-xs" style="border-color:#F59E0B;color:#F59E0B;">一分钟讲透</span>
+          <h4 class="font-serif-sc font-bold text-lg sm:text-xl text-white">
+            <span class="lang-zh">普通中国人的一周心智切换表</span>
+            <span class="lang-en">The Three Mindsets: A Week in Motion</span>
+          </h4>
+        </div>
+        <p class="text-stone-300 text-xs sm:text-sm mb-5">
+          <span class="lang-zh">中国人不是二选一，而是把“儒、道、禅”装在同一个脑子里，在人生的不同时刻切换使用：</span>
+          <span class="lang-en">A Chinese person carries all three like internal apps, switching smoothly depending on what life demands:</span>
         </p>
 
-        <div class="overflow-x-auto mb-4">
-          <div class="mobile-table-wrap shadow-sm my-4"><table class="w-full text-left text-xs sm:text-sm border-collapse">
-            <thead>
-              <tr class="border-b border-stone-700 text-stone-400">
-                <th class="py-2.5 px-2.5">Mode</th>
-                <th class="py-2.5 px-2.5">What it feels like</th>
-                <th class="py-2.5 px-2.5">When it steps in</th>
-                <th class="py-2.5 px-2.5">The line you carry</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-stone-700 text-stone-200">
-              <tr>
-                <td class="py-3 px-2.5 font-bold text-amber-300">儒家 (Confucianism)</td>
-                <td class="py-3 px-2.5">The family ledger</td>
-                <td class="py-3 px-2.5">When Monday asks you to show up, deliver, and keep the household steady</td>
-                <td class="py-3 px-2.5 text-amber-200">“Make the work worthy of the people counting on me.”</td>
-              </tr>
-              <tr>
-                <td class="py-3 px-2.5 font-bold text-teal-300">道家 (Taoism)</td>
-                <td class="py-3 px-2.5">The river route</td>
-                <td class="py-3 px-2.5">When the plan collapses, the criticism lands, and your body says slow down</td>
-                <td class="py-3 px-2.5 text-teal-200">“Do not wrestle the stone; walk around it and keep your strength.”</td>
-              </tr>
-              <tr>
-                <td class="py-3 px-2.5 font-bold text-emerald-300">禅宗 (Zen)</td>
-                <td class="py-3 px-2.5">The quiet cup</td>
-                <td class="py-3 px-2.5">When the weekend mind keeps replaying yesterday and rehearsing tomorrow</td>
-                <td class="py-3 px-2.5 text-emerald-200">“Let yesterday and tomorrow wait; finish this cup of tea.”</td>
-              </tr>
-            </tbody>
-          </table></div>
+        <!-- 移动端专属心智切换卡片栈 (屏幕 < 640px 显示，解决表格过宽截断问题) -->
+        <div class="block sm:hidden space-y-3.5 mb-5">
+          <!-- 1. 儒家卡片 -->
+          <div class="bg-stone-900/90 rounded-xl p-4 border-l-4 border-amber-400 border-t border-r border-b border-stone-700/60 shadow-sm">
+            <div class="flex items-center justify-between mb-2 pb-2 border-b border-stone-800">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center text-xs font-bold font-serif-sc">儒</span>
+                <strong class="text-amber-300 font-bold text-sm">儒家 · Confucianism</strong>
+              </div>
+              <span class="text-[11px] px-2 py-0.5 rounded-full bg-amber-400/10 text-amber-300 border border-amber-400/20 font-medium">The Social Rulebook</span>
+            </div>
+            <div class="grid grid-cols-2 gap-2 text-xs mb-2.5">
+              <div>
+                <span class="text-stone-400 block text-[10px]">管什么？</span>
+                <span class="text-stone-100 font-medium">管工作与社会</span>
+              </div>
+              <div>
+                <span class="text-stone-400 block text-[10px]">何时用它？</span>
+                <span class="text-stone-100 font-medium">上班、拼事业、养家时</span>
+              </div>
+            </div>
+            <div class="bg-stone-800/80 rounded-lg p-2.5 text-xs text-amber-200 flex items-start gap-1.5 border border-amber-500/15">
+              <i data-lucide="compass" class="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5"></i>
+              <span><strong>核心态度：</strong>努力进取，承担家庭与社会责任。</span>
+            </div>
+          </div>
+
+          <!-- 2. 道家卡片 -->
+          <div class="bg-stone-900/90 rounded-xl p-4 border-l-4 border-teal-400 border-t border-r border-b border-stone-700/60 shadow-sm">
+            <div class="flex items-center justify-between mb-2 pb-2 border-b border-stone-800">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-400 flex items-center justify-center text-xs font-bold font-serif-sc">道</span>
+                <strong class="text-teal-300 font-bold text-sm">道家 · Taoism</strong>
+              </div>
+              <span class="text-[11px] px-2 py-0.5 rounded-full bg-teal-400/10 text-teal-300 border border-teal-400/20 font-medium">The Nature Guide</span>
+            </div>
+            <div class="grid grid-cols-2 gap-2 text-xs mb-2.5">
+              <div>
+                <span class="text-stone-400 block text-[10px]">管什么？</span>
+                <span class="text-stone-100 font-medium">管身体与自然</span>
+              </div>
+              <div>
+                <span class="text-stone-400 block text-[10px]">何时用它？</span>
+                <span class="text-stone-100 font-medium">遇到挫折、累了、养生时</span>
+              </div>
+            </div>
+            <div class="bg-stone-800/80 rounded-lg p-2.5 text-xs text-teal-200 flex items-start gap-1.5 border border-teal-500/15">
+              <i data-lucide="waves" class="w-3.5 h-3.5 text-teal-400 shrink-0 mt-0.5"></i>
+              <span><strong>核心态度：</strong>顺应自然规律，像水一样柔软变通。</span>
+            </div>
+          </div>
+
+          <!-- 3. 禅宗卡片 -->
+          <div class="bg-stone-900/90 rounded-xl p-4 border-l-4 border-emerald-400 border-t border-r border-b border-stone-700/60 shadow-sm">
+            <div class="flex items-center justify-between mb-2 pb-2 border-b border-stone-800">
+              <div class="flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs font-bold font-serif-sc">禅</span>
+                <strong class="text-emerald-300 font-bold text-sm">禅宗 · Zen</strong>
+              </div>
+              <span class="text-[11px] px-2 py-0.5 rounded-full bg-emerald-400/10 text-emerald-300 border border-emerald-400/20 font-medium">The Mind Pill</span>
+            </div>
+            <div class="grid grid-cols-2 gap-2 text-xs mb-2.5">
+              <div>
+                <span class="text-stone-400 block text-[10px]">管什么？</span>
+                <span class="text-stone-100 font-medium">管内心与情绪</span>
+              </div>
+              <div>
+                <span class="text-stone-400 block text-[10px]">何时用它？</span>
+                <span class="text-stone-100 font-medium">焦虑、烦躁、想不通时</span>
+              </div>
+            </div>
+            <div class="bg-stone-800/80 rounded-lg p-2.5 text-xs text-emerald-200 flex items-start gap-1.5 border border-emerald-500/15">
+              <i data-lucide="coffee" class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"></i>
+              <span><strong>核心态度：</strong>全神贯注眼前当下，喝茶放空止息杂念。</span>
+            </div>
+          </div>
         </div>
 
-        <div class="p-3.5 bg-stone-900 rounded-xl border border-stone-700 text-xs sm:text-sm text-stone-300 italic lang-en">
-          "A Chinese person runs all three inside: At work, you are Confucian (work hard, deliver results, support your family). When you hit obstacles or burnout, you are Taoist (step back, preserve health, flow like water). When your mind is loud and anxious, you are Zen (put your phone face-down, drink hot tea, and breathe in the now)."
+        <!-- 桌面与平板端完整双语表格 (屏幕 >= 640px 显示) -->
+        <div class="hidden sm:block overflow-x-auto mb-5 rounded-xl border border-stone-700 bg-stone-900/70">
+          <table class="w-full text-left text-xs sm:text-sm border-collapse">
+            <thead>
+              <tr class="border-b border-stone-700 text-stone-300 bg-stone-900/90 font-serif-sc">
+                <th class="py-3 px-3.5 font-bold">
+                  <span class="lang-zh">派系</span>
+                  <span class="lang-en">School</span>
+                </th>
+                <th class="py-3 px-3.5 font-bold">
+                  <span class="lang-zh">英文形象称呼</span>
+                  <span class="lang-en">Archetype</span>
+                </th>
+                <th class="py-3 px-3.5 font-bold">
+                  <span class="lang-zh">管什么？</span>
+                  <span class="lang-en">Governs</span>
+                </th>
+                <th class="py-3 px-3.5 font-bold">
+                  <span class="lang-zh">何时切换它？</span>
+                  <span class="lang-en">When You Use It</span>
+                </th>
+                <th class="py-3 px-3.5 font-bold">
+                  <span class="lang-zh">核心处世态度</span>
+                  <span class="lang-en">Core Philosophy</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-800 text-stone-200">
+              <tr class="hover:bg-stone-800/50 transition-colors">
+                <td class="py-3 px-3.5 font-bold text-amber-300 flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                  <span>儒家 (Confucianism)</span>
+                </td>
+                <td class="py-3 px-3.5 text-amber-200/90 font-medium">The Social Rulebook</td>
+                <td class="py-3 px-3.5">
+                  <span class="lang-zh">管工作与社会</span>
+                  <span class="lang-en">Society & Career</span>
+                </td>
+                <td class="py-3 px-3.5">
+                  <span class="lang-zh">上班、拼事业、照顾家庭时</span>
+                  <span class="lang-en">At work & family duties</span>
+                </td>
+                <td class="py-3 px-3.5 text-amber-200 font-medium">
+                  <span class="lang-zh">努力进取，承担责任</span>
+                  <span class="lang-en">Work hard, take responsibility</span>
+                </td>
+              </tr>
+              <tr class="hover:bg-stone-800/50 transition-colors">
+                <td class="py-3 px-3.5 font-bold text-teal-300 flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-teal-400"></span>
+                  <span>道家 (Taoism)</span>
+                </td>
+                <td class="py-3 px-3.5 text-teal-200/90 font-medium">The Nature Guide</td>
+                <td class="py-3 px-3.5">
+                  <span class="lang-zh">管身体与自然</span>
+                  <span class="lang-en">Health & Nature</span>
+                </td>
+                <td class="py-3 px-3.5">
+                  <span class="lang-zh">遇到挫折、累了、养生时</span>
+                  <span class="lang-en">Burnout, obstacles, healing</span>
+                </td>
+                <td class="py-3 px-3.5 text-teal-200 font-medium">
+                  <span class="lang-zh">顺应规律，像水一样变通</span>
+                  <span class="lang-en">Flow like water, never force</span>
+                </td>
+              </tr>
+              <tr class="hover:bg-stone-800/50 transition-colors">
+                <td class="py-3 px-3.5 font-bold text-emerald-300 flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  <span>禅宗 (Zen)</span>
+                </td>
+                <td class="py-3 px-3.5 text-emerald-200/90 font-medium">The Mind Pill</td>
+                <td class="py-3 px-3.5">
+                  <span class="lang-zh">管内心与情绪</span>
+                  <span class="lang-en">Mind & Emotion</span>
+                </td>
+                <td class="py-3 px-3.5">
+                  <span class="lang-zh">焦虑、烦躁、想不通时</span>
+                  <span class="lang-en">Anxiety, overthinking, stress</span>
+                </td>
+                <td class="py-3 px-3.5 text-emerald-200 font-medium">
+                  <span class="lang-zh">活在当下，喝茶放空</span>
+                  <span class="lang-en">Be here now, enjoy tea</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 总结串词 (极简口语版) -->
+        <div class="p-4 bg-stone-900 rounded-xl border border-stone-700 text-xs sm:text-sm text-stone-300 leading-relaxed">
+          <div class="font-bold text-amber-300 mb-1 flex items-center gap-1.5">
+            <i data-lucide="quote" class="w-3.5 h-3.5"></i>
+            <span class="lang-zh">【对外国人说的总结串词 · 极简口语版】：</span>
+            <span class="lang-en">Summary to tell your foreign friends:</span>
+          </div>
+          <p class="lang-zh text-stone-200">
+            “中国人不是二选一，而是三合一：上班工作时，你是儒家——拼搏努力、严谨守约、赡养家人；遇到坎坷受挫时，你是道家——退一步海阔天空，顺应规律如水般绕行；当脑子被杂念和焦虑塞满时，你是禅宗——坐下来捧起一碗热茶，只专注呼吸和眼前的这一秒。”
+          </p>
+          <p class="lang-en text-stone-300 italic mt-1">
+            "A Chinese person runs all three inside: At work, you are Confucian (work hard, follow the rules, support your family). When you hit big roadblocks or fatigue, you are Taoist (step back, preserve health, flow like water). When your mind is noisy and stressed, you are Zen (put your phone down, sip hot tea, and breathe in the present second)."
+          </p>
         </div>
       </div>
 
@@ -1030,7 +1178,7 @@
     </div>
   </footer>
 
-  <script src="./app.js?v=20261108d"></script>
+  <script src="./app.js?v=20261108e"></script>
   <script>
     lucide.createIcons();
   </script>

@@ -1,44 +1,29 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
-  <defs>
-    <radialGradient id="bgGrad" cx="50%" cy="45%" r="55%">
-      <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="70%" stop-color="#FAF6EE"/>
-      <stop offset="100%" stop-color="#ECE5D6"/>
-    </radialGradient>
-    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1E4E54"/>
-      <stop offset="50%" stop-color="#2D5A3F"/>
-      <stop offset="100%" stop-color="#1E4E54"/>
-    </linearGradient>
-  </defs>
+  <!-- 东方美学底盘：极简纯净温润宣纸色 -->
+  <circle cx="50" cy="50" r="48" fill="#FAF7F2" stroke="#1E4E54" stroke-width="2.4"/>
+  <circle cx="50" cy="50" r="44" fill="none" stroke="#D4AF37" stroke-width="0.8" opacity="0.6"/>
 
-  <!-- 外圈文化徽环 -->
-  <circle cx="50" cy="50" r="48" fill="url(#bgGrad)" stroke="url(#ringGrad)" stroke-width="2.6"/>
-  <circle cx="50" cy="50" r="44" fill="none" stroke="#D4AF37" stroke-width="0.8" stroke-dasharray="2 1.5" opacity="0.75"/>
+  <!-- 阴阳留白·大熊猫经典墨黑结构 (Negative Space Zen Panda) -->
+  <g fill="#181A19">
+    <!-- 左耳与右耳：饱满外张黄金弧线 -->
+    <path d="M22,23 C16,23 12,28 14,36 C16,42 22,41 27,35 C29,32 28,23 22,23 Z"/>
+    <path d="M78,23 C84,23 88,28 86,36 C84,42 78,41 73,35 C71,32 72,23 78,23 Z"/>
 
-  <!-- 大熊猫两耳 (沉稳墨色) -->
-  <path d="M24,21 C17,21 13,27 15,35 C17,42 23,41 28,35 C30,32 29,23 24,21 Z" fill="#1A1C1B"/>
-  <path d="M76,21 C83,21 87,27 85,35 C83,42 77,41 72,35 C70,32 71,23 76,21 Z" fill="#1A1C1B"/>
+    <!-- 标志性八字墨黑眼圈：微倾沉稳角度 -->
+    <ellipse cx="36" cy="46" rx="8.5" ry="11.5" transform="rotate(-20 36 46)"/>
+    <ellipse cx="64" cy="46" rx="8.5" ry="11.5" transform="rotate(20 64 46)"/>
 
-  <!-- 头部主轮廓 (温润白玉) -->
-  <path d="M50,22 C31,22 21,36 21,54 C21,72 33,81 50,81 C67,81 79,72 79,54 C79,36 69,22 50,22 Z" fill="#FFFFFF" stroke="#E2DAC8" stroke-width="0.6"/>
+    <!-- 灵动双目微光 (纯净留白点睛) -->
+    <circle cx="37.5" cy="44.5" r="2.4" fill="#FFFFFF"/>
+    <circle cx="62.5" cy="44.5" r="2.4" fill="#FFFFFF"/>
 
-  <!-- 标志性八字形眼圈 (庄重沉稳角度) -->
-  <ellipse cx="36" cy="48" rx="8.5" ry="11" transform="rotate(-22 36 48)" fill="#1A1C1B"/>
-  <ellipse cx="64" cy="48" rx="8.5" ry="11" transform="rotate(22 64 48)" fill="#1A1C1B"/>
+    <!-- 墨黑鼻头 -->
+    <path d="M46.5,56 C46.5,56 50,54.5 53.5,56 C54.5,58.5 52,61 50,61 C48,61 45.5,58.5 46.5,56 Z"/>
 
-  <!-- 聪慧眼睛 (灵动高光) -->
-  <circle cx="37.5" cy="46.5" r="2.8" fill="#FFFFFF"/>
-  <circle cx="38.2" cy="46" r="1.2" fill="#1A1C1B"/>
-  <circle cx="62.5" cy="46.5" r="2.8" fill="#FFFFFF"/>
-  <circle cx="61.8" cy="46" r="1.2" fill="#1A1C1B"/>
+    <!-- 经典稳重抱臂前躯与肩胛轮廓 (自然托起头部留白) -->
+    <path d="M22,66 C18,72 16,78 18,84 C21,88 28,88 34,84 C40,80 44,76 50,76 C56,76 60,80 66,84 C72,88 79,88 82,84 C84,78 82,72 78,66 C72,60 62,68 50,68 C38,68 28,60 22,66 Z"/>
+  </g>
 
-  <!-- 倒三角鼻头 -->
-  <path d="M46.5,59 C46.5,59 50,57.5 53.5,59 C54.5,61.5 52,64 50,64 C48,64 45.5,61.5 46.5,59 Z" fill="#1A1C1B"/>
-
-  <!-- 吻部曲线 -->
-  <path d="M50,64 L50,67 M46,67 C48,68.5 50,68.5 50,67 C50,68.5 52,68.5 54,67" fill="none" stroke="#1A1C1B" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-
-  <!-- 底部竹韵双托 (象征天府竹林清幽) -->
-  <path d="M38,78 C44,75 50,77 50,77 C50,77 56,75 62,78 C57,80.5 50,80 50,80 C50,80 43,80.5 38,78 Z" fill="#2D5A3F" opacity="0.9"/>
+  <!-- 底部青翠竹韵一点 (天府成都生态意象) -->
+  <path d="M44,89 C48,87 50,88 50,88 C50,88 52,87 56,89 C53,90.5 50,90 50,90 C50,90 47,90.5 44,89 Z" fill="#2D5A3F"/>
 </svg>
