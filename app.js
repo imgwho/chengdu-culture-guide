@@ -174,6 +174,28 @@ function initPptDeck() {
     }
   });
 
+  // 移动端左右手势滑动手感支持
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const slideDeckEl = document.getElementById("ppt-deck-view");
+  if (slideDeckEl) {
+    slideDeckEl.addEventListener("touchstart", (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    slideDeckEl.addEventListener("touchend", (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diffX = touchEndX - touchStartX;
+      if (Math.abs(diffX) > 42) {
+        if (diffX < 0) {
+          goToSlide((currentSlide + 1) % totalSlides); // 向左滑 -> 下一页
+        } else {
+          goToSlide((currentSlide - 1 + totalSlides) % totalSlides); // 向右滑 -> 上一页
+        }
+      }
+    }, { passive: true });
+  }
+
   const btnPpt = document.getElementById("btn-mode-ppt");
   const btnGrid = document.getElementById("btn-mode-grid");
   const pptView = document.getElementById("ppt-deck-view");
@@ -335,7 +357,7 @@ function initImageLightbox() {
     lightbox.id = "image-lightbox";
     lightbox.innerHTML = `
       <div class="relative max-w-4xl max-h-[90vh] flex flex-col items-center">
-        <button id="lightbox-close-btn" class="absolute -top-10 right-0 text-white/80 hover:text-white text-2xl font-bold bg-black/40 rounded-full w-9 h-9 flex items-center justify-center cursor-pointer transition-colors">✕</button>
+        <button id="lightbox-close-btn" class="fixed top-4 right-4 z-50 text-white/95 hover:text-white text-xl font-bold bg-black/60 rounded-full w-10 h-10 flex items-center justify-center cursor-pointer transition-all border border-white/20 shadow-lg">✕</button>
         <img id="lightbox-img" src="" alt="大图预览" class="rounded shadow-2xl">
         <p id="lightbox-caption" class="text-xs sm:text-sm text-stone-200 mt-2.5 text-center font-medium bg-black/60 px-3 py-1 rounded backdrop-blur-sm"></p>
       </div>

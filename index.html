@@ -11,7 +11,7 @@
   <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
   
-  <link rel="stylesheet" href="./style.css?v=20261108c">
+  <link rel="stylesheet" href="./style.css?v=20261108d">
   <script>
     tailwind.config = {
       theme: {
@@ -42,7 +42,7 @@
     }
   </script>
 </head>
-<body class="min-h-screen text-slate-800 antialiased selection:bg-amber-100 selection:text-amber-900">
+<body class="min-h-screen text-slate-800 antialiased overflow-x-hidden selection:bg-amber-100 selection:text-amber-900">
 
   <!-- 顶部导航栏 -->
   <header class="sticky top-0 z-50 backdrop-blur-md bg-white/95 border-b border-stone-200 shadow-sm">
@@ -55,11 +55,11 @@
         </div>
 
         <div class="flex flex-col">
-          <span class="font-serif-sc font-bold text-lg tracking-wider text-slate-900 group-hover:text-tao transition-colors flex items-center gap-1.5">
+          <span class="font-serif-sc font-bold text-base sm:text-lg tracking-wider text-slate-900 group-hover:text-tao transition-colors flex items-center gap-1.5">
             锦官道与禅
             <span class="inline-block text-[10px] px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 font-sans font-medium">成都</span>
           </span>
-          <span class="text-[10px] tracking-widest uppercase text-stone-500 font-medium">Tao, Zen & The Chinese Mind</span>
+          <span class="hidden sm:inline text-[10px] tracking-widest uppercase text-stone-500 font-medium">Tao, Zen & The Chinese Mind</span>
         </div>
       </a>
 
@@ -237,7 +237,7 @@
           </div>
           <figcaption>
             <div class="flex items-center justify-between">
-              <strong class="text-sm font-bold text-slate-900 font-serif-sc group-hover:text-tao transition-colors">Eight-Trigram Pavilion盘龙石刻碑首</strong>
+              <strong class="text-sm font-bold text-slate-900 font-serif-sc group-hover:text-tao transition-colors"><span class="lang-zh">八卦亭盘龙石刻碑首</span><span class="lang-en">Eight-Trigram Dragon Stele</span></strong>
               <span class="text-[10px] text-stone-400">点击放大 🔍</span>
             </div>
             <span class="text-xs text-stone-600 line-clamp-1">天圆地方宇宙观与镂空飞龙纹样</span>
@@ -287,7 +287,7 @@
           </div>
           <div class="md:col-span-7">
             <span class="text-xs font-bold text-tao uppercase tracking-wider block mb-1">Stop 1 · Entrance & Lingzu Hall</span>
-            <h3 class="font-serif-sc font-bold text-2xl text-slate-900 mb-2">1. Entrance Gate & Lingzu Hall</h3>
+            <h3 class="font-serif-sc font-bold text-xl sm:text-2xl text-slate-900 mb-2"><span class="lang-zh">1. 山门与灵祖殿</span><span class="lang-en">1. Entrance Gate & Lingzu Hall</span></h3>
             
             <p class="text-xs sm:text-sm text-stone-700 leading-relaxed mb-3 lang-zh">
               <strong>典雅看点：</strong>正中供奉道教最著名的护法尊神——<strong>王灵官</strong>。红脸赤发，额生神目（第三只眼），右手高举纯铜金鞭，专门镇守山门、驱除邪祟。
@@ -320,7 +320,7 @@
           </div>
           <div class="md:col-span-7">
             <span class="text-xs font-bold text-tao uppercase tracking-wider block mb-1">Stop 2 · Hunyuan Hall</span>
-            <h3 class="font-serif-sc font-bold text-2xl text-slate-900 mb-2">2. Hunyuan Hall</h3>
+            <h3 class="font-serif-sc font-bold text-xl sm:text-2xl text-slate-900 mb-2"><span class="lang-zh">2. 混元殿</span><span class="lang-en">2. Hunyuan Hall</span></h3>
             
             <p class="text-xs sm:text-sm text-stone-700 leading-relaxed mb-3 lang-zh">
               <strong>典雅看点：</strong>供奉道教祖师<strong>太上老君</strong>（老子神化形象）。他手中托着一个“混元乾坤球”，象征天地形成之前、万物融为一体的最初宇宙状态。殿后供奉慈航真人。
@@ -353,7 +353,7 @@
           </div>
           <div class="md:col-span-7">
             <span class="text-xs font-bold text-tao uppercase tracking-wider block mb-1">Stop 3 · Eight-Trigram Pavilion</span>
-            <h3 class="font-serif-sc font-bold text-2xl text-slate-900 mb-2">3. Eight-Trigram Pavilion</h3>
+            <h3 class="font-serif-sc font-bold text-xl sm:text-2xl text-slate-900 mb-2"><span class="lang-zh">3. 八卦亭</span><span class="lang-en">3. Eight-Trigram Pavilion</span></h3>
             
             <p class="text-xs sm:text-sm text-stone-700 leading-relaxed mb-3 lang-zh">
               <strong>典雅看点：</strong>青羊宫核心古建筑。方形地基、圆形穹顶，契合中国古代<strong>“天圆地方”</strong>宇宙观。十六根石柱支撑，外檐有镂空盘龙石柱。相传修建完成时巨龙欲腾云飞去，被老君用神符定住留痕。
@@ -386,7 +386,7 @@
           </div>
           <div class="md:col-span-7">
             <span class="text-xs font-bold text-cinnabar uppercase tracking-wider block mb-1">Stop 4 · Sanqing Hall & Bronze Goats</span>
-            <h3 class="font-serif-sc font-bold text-2xl text-slate-900 mb-2">4. Three Pure Ones Hall & Bronze Goats</h3>
+            <h3 class="font-serif-sc font-bold text-xl sm:text-2xl text-slate-900 mb-2"><span class="lang-zh">4. 三清殿与两只铜羊</span><span class="lang-en">4. Three Pure Ones Hall & Bronze Goats</span></h3>
             
             <p class="text-xs text-stone-700 leading-relaxed mb-2 lang-zh">
               <strong>典雅看点：</strong>主殿供奉最高神祇“三清”。左侧清代<strong>独角铜羊</strong>表面温顺，实为<strong>十二生肖合体神兽</strong>（鼠耳、虎爪、龙角、蛇尾...）。几百年流传“摸羊祛病”民俗。
@@ -442,7 +442,7 @@
           </div>
           <div class="md:col-span-7">
             <span class="text-xs font-bold text-tao uppercase tracking-wider block mb-1">Stop 5 · Doumu Hall</span>
-            <h3 class="font-serif-sc font-bold text-2xl text-slate-900 mb-2">5. Doumu Hall · Find Your Guardian Star</h3>
+            <h3 class="font-serif-sc font-bold text-xl sm:text-2xl text-slate-900 mb-2"><span class="lang-zh">5. 斗姆殿：找本命太岁</span><span class="lang-en">5. Doumu Hall: Find Your Guardian Star</span></h3>
             
             <p class="text-xs sm:text-sm text-stone-700 leading-relaxed mb-3 lang-zh">
               <strong>典雅看点：</strong>供奉北斗众星之母<strong>斗姆元君</strong>，长有三目、四面、八臂，手持日月与法器。两旁排开<strong>六十位太岁神</strong>，对应天干地支六十年循环。
@@ -475,7 +475,7 @@
           </div>
           <div class="md:col-span-7">
             <span class="text-xs font-bold text-tao uppercase tracking-wider block mb-1">Stop 6 · Sanhuang & Tangwang Halls</span>
-            <h3 class="font-serif-sc font-bold text-2xl text-slate-900 mb-2">6. Three Sovereigns & Tang King Hall</h3>
+            <h3 class="font-serif-sc font-bold text-xl sm:text-2xl text-slate-900 mb-2"><span class="lang-zh">6. 三皇殿与唐王殿</span><span class="lang-en">6. Three Sovereigns & Tang King Hall</span></h3>
             
             <p class="text-xs sm:text-sm text-stone-700 leading-relaxed mb-3 lang-zh">
               <strong>典雅看点：</strong>供奉伏羲、神农、黄帝以及唐高祖、唐太宗。唐朝皇帝认老子李耳为先祖，唐僖宗避难成都驻跸于此，升格为大唐皇家宫观。珍藏《道藏辑要》珍贵木刻经版。
@@ -508,7 +508,7 @@
           </div>
           <div class="md:col-span-7">
             <span class="text-xs font-bold text-zen uppercase tracking-wider block mb-1">Stop 7 · Back Garden Tea House</span>
-            <h3 class="font-serif-sc font-bold text-2xl text-slate-900 mb-2">7. Rear Garden Tea House: Zen & Gaiwan Tea</h3>
+            <h3 class="font-serif-sc font-bold text-xl sm:text-2xl text-slate-900 mb-2"><span class="lang-zh">7. 后苑茶园：喝盖碗茶悟道</span><span class="lang-en">7. Rear Garden Tea House: Zen & Gaiwan Tea</span></h3>
             
             <p class="text-xs sm:text-sm text-stone-700 leading-relaxed mb-3 lang-zh">
               <strong>典雅看点：</strong>后院清幽无尘，秋冬银杏金黄，绿竹环绕。露天竹椅随意散落，道士与市民同坐饮茶闲聊，融入天府之国地道的慢生活禅意。
@@ -564,7 +564,16 @@
     <div class="flex items-center gap-2 mb-3"><span class="chinese-seal text-xs">Route Map</span><h2 class="font-serif-sc font-bold text-2xl text-slate-900">Qingyang Palace Site Map</h2></div>
     <p class="text-sm text-stone-600 mb-6">根据入口路线图补充中轴线两侧的重要殿堂、园林与文化空间，适合现场按图索骥。</p>
     <div class="grid grid-cols-1 md:grid-cols-5 gap-6 items-start">
-      <figure class="md:col-span-2 photo-card"><img src="./assets/images/qingyang-route-map.jpg" alt="青羊宫出入口路线图" loading="lazy"><figcaption><strong>青羊宫出入口路线图</strong><span>建议从山门向北依次游览</span></figcaption></figure>
+      <figure class="md:col-span-2 photo-card group">
+        <div class="img-wrap">
+          <span class="gallery-badge"><i data-lucide="map" class="w-3 h-3"></i> 景区路线图</span>
+          <img class="photo-zoomable" src="./assets/images/qingyang-route-map.jpg" alt="青羊宫出入口路线图" loading="lazy">
+        </div>
+        <figcaption>
+          <strong class="text-sm font-bold text-slate-900 font-serif-sc">青羊宫全域出入口路线图</strong>
+          <span class="text-xs text-stone-500">建议沿正南中轴线向北依次探访各殿</span>
+        </figcaption>
+      </figure>
       <div class="md:col-span-3 grid grid-cols-2 sm:grid-cols-3 gap-3">
         <div class="spot-chip">元辰殿<small>本命太岁</small></div><div class="spot-chip">二仙殿<small>吕洞宾传说</small></div><div class="spot-chip">吕祖殿<small>剑仙信仰</small></div>
         <div class="spot-chip">文昌殿<small>学业功名</small></div><div class="spot-chip">财神殿<small>财运祈愿</small></div><div class="spot-chip">药王殿<small>医药民俗</small></div>
@@ -970,7 +979,7 @@
         </p>
 
         <div class="overflow-x-auto mb-4">
-          <table class="w-full text-left text-xs sm:text-sm border-collapse">
+          <div class="mobile-table-wrap shadow-sm my-4"><table class="w-full text-left text-xs sm:text-sm border-collapse">
             <thead>
               <tr class="border-b border-stone-700 text-stone-400">
                 <th class="py-2.5 px-2.5">Mode</th>
@@ -999,7 +1008,7 @@
                 <td class="py-3 px-2.5 text-emerald-200">“Let yesterday and tomorrow wait; finish this cup of tea.”</td>
               </tr>
             </tbody>
-          </table>
+          </table></div>
         </div>
 
         <div class="p-3.5 bg-stone-900 rounded-xl border border-stone-700 text-xs sm:text-sm text-stone-300 italic lang-en">
@@ -1021,7 +1030,7 @@
     </div>
   </footer>
 
-  <script src="./app.js?v=20261108c"></script>
+  <script src="./app.js?v=20261108d"></script>
   <script>
     lucide.createIcons();
   </script>
