@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "20261108-chengdu-culture-guide",
+  "name": "chengdu-culture-guide",
   "compatibility_date": "2026-10-19",
   "observability": {
     "enabled": true
