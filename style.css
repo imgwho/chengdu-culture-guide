@@ -301,3 +301,4 @@ html[data-lang="bi"] .lang-en { display: block !important; }
 *,*::before,*::after{border-style:none!important;border-width:0!important}
 .animate-spin-slow{animation:spin 18s linear infinite!important;visibility:visible!important}
 @keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:640px){header>div{height:auto!important;min-height:4rem;flex-wrap:wrap;gap:.45rem;padding-top:.45rem;padding-bottom:.45rem}header a{min-width:0;gap:.45rem}header a .text-lg{font-size:.9rem;white-space:nowrap}header a .tracking-widest{font-size:8px;white-space:nowrap}header>div>div:last-child{margin-left:auto}header>div>div:last-child button{padding-left:.45rem!important;padding-right:.45rem!important;font-size:10px}}
