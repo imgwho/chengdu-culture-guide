@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // 1. 语言切换
 function initLanguageSwitcher() {
   const langBtns = document.querySelectorAll("[data-set-lang]");
-  const savedLang = localStorage.getItem("preferred_lang") || "en";
+  const savedLang = "en";
   setLanguage(savedLang);
 
   langBtns.forEach(btn => {
@@ -372,4 +372,5 @@ function initImageLightbox() {
     };
   });
 }
+
 
