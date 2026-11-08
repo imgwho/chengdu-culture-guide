@@ -126,7 +126,7 @@
         A Cultural Walk Through Qingyang Palace & The Harmony of Three Teachings
       </p>
 
-      <!-- 大白话解释框 (接通生活场景) -->
+      <!-- 大白话解释框 -->
       <div class="max-w-2xl mx-auto p-4 sm:p-5 rounded-2xl bg-amber-50/50 border border-amber-200 text-left mb-8 shadow-sm">
         <div class="text-xs font-bold text-amber-950 uppercase tracking-wider mb-1 flex items-center gap-1.5">
           <i data-lucide="info" class="w-3.5 h-3.5 text-amber-700"></i>
@@ -163,10 +163,10 @@
     </div>
   </section>
 
-  <!-- 第一部分：青羊宫中轴线全景点深度导览 (雅致提炼 + 大白话生动解释) -->
+  <!-- 第一部分：青羊宫中轴线全景点深度导览 -->
   <section id="qingyang-axis" class="py-16 max-w-5xl mx-auto px-4 sm:px-6">
     
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
       <div>
         <div class="inline-flex items-center gap-2 mb-2">
           <span class="chinese-seal text-xs">第一部分</span>
@@ -197,7 +197,55 @@
       </div>
     </div>
 
-    <!-- 1. PPT 交互式左右翻页漫游视图 -->
+    <!-- 青羊宫经典文物与实景画廊 (完整展示 · 支持点击灯箱放大) -->
+    <div class="mb-8">
+      <div class="flex items-center justify-between mb-3">
+        <div class="flex items-center gap-2">
+          <span class="chinese-seal text-xs">实景鉴赏</span>
+          <h3 class="font-serif-sc font-bold text-base text-slate-900">青羊宫重点文物与建筑实景</h3>
+        </div>
+        <span class="text-[11px] text-stone-500 hidden sm:inline flex items-center gap-1">
+          <i data-lucide="zoom-in" class="w-3.5 h-3.5 text-stone-400"></i> 点击任意图片查看无裁切高清全貌
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <!-- 照片 1：三清殿与八卦亭 -->
+        <figure class="photo-card">
+          <div class="img-wrap">
+            <img class="photo-zoomable" src="./assets/images/qingyang-sanqing.jpg" alt="成都青羊宫三清殿与八卦亭实景全貌" loading="lazy">
+          </div>
+          <figcaption>
+            <strong class="text-xs font-bold text-slate-900">三清殿 · 八卦亭</strong>
+            <span class="text-[11px] text-stone-500">中轴线核心国宝建筑群全景</span>
+          </figcaption>
+        </figure>
+
+        <!-- 照片 2：独角铜羊全身像 (完整无裁切展示) -->
+        <figure class="photo-card">
+          <div class="img-wrap">
+            <img class="photo-zoomable" src="./assets/images/copper-goat.jpg" alt="青羊宫清代铸独角铜羊全身雕塑" loading="lazy">
+          </div>
+          <figcaption>
+            <strong class="text-xs font-bold text-slate-900">独角铜羊 (全身实景)</strong>
+            <span class="text-[11px] text-stone-500">十二生肖合体神兽 · 羊身磨得铮亮</span>
+          </figcaption>
+        </figure>
+
+        <!-- 照片 3：八卦亭盘龙石刻碑首 -->
+        <figure class="photo-card">
+          <div class="img-wrap">
+            <img class="photo-zoomable" src="./assets/images/bagua-stele.jpg" alt="青羊宫八卦亭石刻盘龙碑首实景" loading="lazy">
+          </div>
+          <figcaption>
+            <strong class="text-xs font-bold text-slate-900">八卦亭盘龙石刻碑首</strong>
+            <span class="text-[11px] text-stone-500">天圆地方宇宙观与镂空飞龙纹样</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- 1. PPT 交互式左右翻页漫游视图 (图片完整自适应容器) -->
     <div id="ppt-deck-view" class="card-paper rounded-2xl p-6 sm:p-8 bg-white border-2 border-stone-300 shadow-lg relative overflow-hidden">
       
       <!-- 顶部指示器与翻页信息 -->
@@ -224,13 +272,17 @@
       <!-- Slide 1: 山门与灵祖殿 -->
       <div class="ppt-slide active" data-slide-index="0">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-          <div class="md:col-span-5 p-6 rounded-2xl bg-stone-50 border border-stone-200 text-center flex flex-col items-center justify-center min-h-[220px]">
-            <div class="w-16 h-16 rounded-full bg-tao/10 text-tao flex items-center justify-center mb-3">
-              <i data-lucide="shield" class="w-8 h-8"></i>
+          <div class="md:col-span-5 flex flex-col gap-2.5">
+            <div class="slide-photo-frame group">
+              <img class="photo-zoomable" src="./assets/images/slide-1-shanmen.jpg" alt="青羊宫第1站：山门与灵祖殿建筑实景" loading="lazy">
+              <div class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded flex items-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
+                <i data-lucide="zoom-in" class="w-3 h-3"></i> <span>点击看大图</span>
+              </div>
             </div>
-            <span class="chinese-seal text-xs mb-1">中轴第一殿</span>
-            <span class="font-serif-sc font-bold text-lg text-slate-900">王灵官：镇守山门驱邪祟</span>
-            <span class="text-xs text-stone-500 font-mono mt-1">Lingzu Hall & The Guardian</span>
+            <div class="flex items-center justify-between px-1">
+              <span class="chinese-seal text-[11px]">中轴第一殿</span>
+              <span class="text-xs text-stone-600 font-serif-sc font-bold">山门与王灵官神龛</span>
+            </div>
           </div>
           <div class="md:col-span-7">
             <span class="text-xs font-bold text-tao uppercase tracking-wider block mb-1">Stop 1 · Entrance & Lingzu Hall</span>
@@ -253,13 +305,17 @@
       <!-- Slide 2: 混元殿 -->
       <div class="ppt-slide" data-slide-index="1">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-          <div class="md:col-span-5 p-6 rounded-2xl bg-stone-50 border border-stone-200 text-center flex flex-col items-center justify-center min-h-[220px]">
-            <div class="w-16 h-16 rounded-full bg-tao/10 text-tao flex items-center justify-center mb-3">
-              <i data-lucide="globe" class="w-8 h-8"></i>
+          <div class="md:col-span-5 flex flex-col gap-2.5">
+            <div class="slide-photo-frame group">
+              <img class="photo-zoomable" src="./assets/images/slide-2-hunyuan.jpg" alt="青羊宫第2站：混元殿太上老君金身实景" loading="lazy">
+              <div class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded flex items-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
+                <i data-lucide="zoom-in" class="w-3 h-3"></i> <span>点击看大图</span>
+              </div>
             </div>
-            <span class="chinese-seal text-xs mb-1">中轴第二殿</span>
-            <span class="font-serif-sc font-bold text-lg text-slate-900">太上老君 · 混元乾坤球</span>
-            <span class="text-xs text-stone-500 font-mono mt-1">Lao Tzu & The Universe Sphere</span>
+            <div class="flex items-center justify-between px-1">
+              <span class="chinese-seal text-[11px]">中轴第二殿</span>
+              <span class="text-xs text-stone-600 font-serif-sc font-bold">混元太极与乾坤球</span>
+            </div>
           </div>
           <div class="md:col-span-7">
             <span class="text-xs font-bold text-tao uppercase tracking-wider block mb-1">Stop 2 · Hunyuan Hall</span>
@@ -282,13 +338,17 @@
       <!-- Slide 3: 八卦亭 -->
       <div class="ppt-slide" data-slide-index="2">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-          <div class="md:col-span-5 p-6 rounded-2xl bg-stone-50 border border-stone-200 text-center flex flex-col items-center justify-center min-h-[220px]">
-            <div class="w-16 h-16 rounded-full bg-tao/10 text-tao flex items-center justify-center mb-3">
-              <i data-lucide="box" class="w-8 h-8"></i>
+          <div class="md:col-span-5 flex flex-col gap-2.5">
+            <div class="slide-photo-frame group">
+              <img class="photo-zoomable" src="./assets/images/slide-3-bagua.jpg" alt="青羊宫第3站：八卦亭飞檐与盘龙柱实景" loading="lazy">
+              <div class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded flex items-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
+                <i data-lucide="zoom-in" class="w-3 h-3"></i> <span>点击看大图</span>
+              </div>
             </div>
-            <span class="chinese-seal text-xs mb-1">中轴第三殿</span>
-            <span class="font-serif-sc font-bold text-lg text-slate-900">八卦亭：天圆地方盘龙柱</span>
-            <span class="text-xs text-stone-500 font-mono mt-1">Heaven, Earth & Dragon Pillars</span>
+            <div class="flex items-center justify-between px-1">
+              <span class="chinese-seal text-[11px]">中轴第三殿</span>
+              <span class="text-xs text-stone-600 font-serif-sc font-bold">八卦穹顶与定龙石柱</span>
+            </div>
           </div>
           <div class="md:col-span-7">
             <span class="text-xs font-bold text-tao uppercase tracking-wider block mb-1">Stop 3 · Eight-Trigram Pavilion</span>
@@ -311,13 +371,17 @@
       <!-- Slide 4: 三清殿与两只铜羊 -->
       <div class="ppt-slide" data-slide-index="3">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-          <div class="md:col-span-5 p-5 rounded-2xl bg-amber-50/50 border border-amber-200 text-center flex flex-col items-center justify-center min-h-[220px]">
-            <div class="w-16 h-16 rounded-full bg-cinnabar/10 text-cinnabar flex items-center justify-center mb-2">
-              <i data-lucide="sparkles" class="w-8 h-8"></i>
+          <div class="md:col-span-5 flex flex-col gap-2.5">
+            <div class="slide-photo-frame group">
+              <img class="photo-zoomable" src="./assets/images/slide-4-sanqing-goat.jpg" alt="青羊宫第4站：三清殿前独角铜羊实景" loading="lazy">
+              <div class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded flex items-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
+                <i data-lucide="zoom-in" class="w-3 h-3"></i> <span>点击看大图</span>
+              </div>
             </div>
-            <span class="chinese-seal text-xs mb-1">中轴第四殿</span>
-            <span class="font-serif-sc font-bold text-lg text-slate-900">独角铜羊：十二生肖合体神兽</span>
-            <span class="text-xs text-amber-900 font-medium mt-1">哪里痛摸哪里 · 抚羊祛病</span>
+            <div class="flex items-center justify-between px-1">
+              <span class="chinese-seal text-[11px]">中轴第四殿</span>
+              <span class="text-xs text-stone-600 font-serif-sc font-bold">三清殿前十二生肖神羊</span>
+            </div>
           </div>
           <div class="md:col-span-7">
             <span class="text-xs font-bold text-cinnabar uppercase tracking-wider block mb-1">Stop 4 · Sanqing Hall & Bronze Goats</span>
@@ -327,7 +391,7 @@
               <strong>典雅看点：</strong>主殿供奉最高神祇“三清”。左侧清代<strong>独角铜羊</strong>表面温顺，实为<strong>十二生肖合体神兽</strong>（鼠耳、虎爪、龙角、蛇尾...）。几百年流传“摸羊祛病”民俗。
             </p>
             <div class="p-2.5 bg-amber-50/60 rounded-lg border border-amber-200 text-xs text-amber-950 mb-3 lang-zh">
-              💡 <strong>大白话解释：</strong>成都人信了几百年的“免挂号神兽”，被全国香客摸得比镜子还亮。头痛摸羊角，胃胀摸肚子，久坐腰酸摸羊背，外国朋友上去摸一把把疲惫带走！
+              💡 <strong>大白话解释：</strong>成都人信了几百年的“免挂号神兽”，被全国香客摸得比镜子还亮。头痛摸角，胃胀摸肚子，久坐腰酸摸羊背，外国朋友上去摸一把把疲惫带走！
             </div>
 
             <!-- 12 生肖点击部位互动组件 -->
@@ -363,13 +427,17 @@
       <!-- Slide 5: 斗姆殿 -->
       <div class="ppt-slide" data-slide-index="4">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-          <div class="md:col-span-5 p-6 rounded-2xl bg-stone-50 border border-stone-200 text-center flex flex-col items-center justify-center min-h-[220px]">
-            <div class="w-16 h-16 rounded-full bg-tao/10 text-tao flex items-center justify-center mb-3">
-              <i data-lucide="stars" class="w-8 h-8"></i>
+          <div class="md:col-span-5 flex flex-col gap-2.5">
+            <div class="slide-photo-frame group">
+              <img class="photo-zoomable" src="./assets/images/slide-5-doum.jpg" alt="青羊宫第5站：斗姆殿与六十太岁神龛实景" loading="lazy">
+              <div class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded flex items-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
+                <i data-lucide="zoom-in" class="w-3 h-3"></i> <span>点击看大图</span>
+              </div>
             </div>
-            <span class="chinese-seal text-xs mb-1">中轴第五殿</span>
-            <span class="font-serif-sc font-bold text-lg text-slate-900">斗姆殿：北斗众星之母</span>
-            <span class="text-xs text-stone-500 font-mono mt-1">Mother of Stars & 60 Tai Sui</span>
+            <div class="flex items-center justify-between px-1">
+              <span class="chinese-seal text-[11px]">中轴第五殿</span>
+              <span class="text-xs text-stone-600 font-serif-sc font-bold">北斗众星与六十太岁</span>
+            </div>
           </div>
           <div class="md:col-span-7">
             <span class="text-xs font-bold text-tao uppercase tracking-wider block mb-1">Stop 5 · Doumu Hall</span>
@@ -382,7 +450,7 @@
               💡 <strong>大白话解释：</strong>这位女神像科幻大片里的外星高等智慧，两侧坐着 60 个全副武装的雕像。你出生在哪一年，这里就有一尊专属于你出生那年的“终身私人保镖”！
             </div>
 
-            <div class="p-3 bg-stone-50 rounded-lg border-l-4 border-tao text-xs sm:text-sm text-stone-800 italic lang-en">
+            <div class="p-3 bg-stone-50 rounded-lg border-l-4 border-tao text-xs sm:text-stone-800 italic lang-en">
               "Mother of the stars with 4 faces and 8 arms. The 60 armored statues around her guard each year of the 60-year Chinese calendar. Let's find your personal celestial bodyguard!"
             </div>
           </div>
@@ -392,13 +460,17 @@
       <!-- Slide 6: 三皇殿与唐王殿 -->
       <div class="ppt-slide" data-slide-index="5">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-          <div class="md:col-span-5 p-6 rounded-2xl bg-stone-50 border border-stone-200 text-center flex flex-col items-center justify-center min-h-[220px]">
-            <div class="w-16 h-16 rounded-full bg-tao/10 text-tao flex items-center justify-center mb-3">
-              <i data-lucide="crown" class="w-8 h-8"></i>
+          <div class="md:col-span-5 flex flex-col gap-2.5">
+            <div class="slide-photo-frame group">
+              <img class="photo-zoomable" src="./assets/images/slide-6-sanhuang.jpg" alt="青羊宫第6站：三皇殿与唐王殿大殿实景" loading="lazy">
+              <div class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded flex items-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
+                <i data-lucide="zoom-in" class="w-3 h-3"></i> <span>点击看大图</span>
+              </div>
             </div>
-            <span class="chinese-seal text-xs mb-1">中轴第六殿</span>
-            <span class="font-serif-sc font-bold text-lg text-slate-900">李唐宗庙 · 《道藏辑要》</span>
-            <span class="text-xs text-stone-500 font-mono mt-1">Royal Tang Ancestral Hall</span>
+            <div class="flex items-center justify-between px-1">
+              <span class="chinese-seal text-[11px]">中轴第六殿</span>
+              <span class="text-xs text-stone-600 font-serif-sc font-bold">李唐宗庙与古木经版</span>
+            </div>
           </div>
           <div class="md:col-span-7">
             <span class="text-xs font-bold text-tao uppercase tracking-wider block mb-1">Stop 6 · Sanhuang & Tangwang Halls</span>
@@ -408,10 +480,10 @@
               <strong>典雅看点：</strong>供奉伏羲、神农、黄帝以及唐高祖、唐太宗。唐朝皇帝认老子李耳为先祖，唐僖宗避难成都驻跸于此，升格为大唐皇家宫观。珍藏《道藏辑要》珍贵木刻经版。
             </p>
             <div class="p-3 bg-amber-50/60 rounded-lg border border-amber-200 text-xs text-amber-950 mb-3 lang-zh">
-              💡 <strong>大白话解释：</strong>老子原名叫李耳，唐朝皇帝也姓李。唐室皇帝为了证明血统高贵，拍着胸脯说“老子是我亲爷爷”，直接把这间民间道观升格成大唐皇室专用避暑行宫。
+              💡 <strong>大白话解释：</strong>老子原名李耳，唐朝皇帝也姓李。唐室皇帝为了证明血统高贵，拍着胸脯说“老子是我亲爷爷”，直接把民间道观升格成大唐皇室专用避暑行宫。
             </div>
 
-            <div class="p-3 bg-stone-50 rounded-lg border-l-4 border-tao text-xs sm:text-sm text-stone-800 italic lang-en">
+            <div class="p-3 bg-stone-50 rounded-lg border-l-4 border-tao text-xs sm:text-stone-800 italic lang-en">
               "Lao Tzu's real surname was Li, and the Tang emperors were also named Li. The emperors bragged: 'Lao Tzu is our ancestor!' That upgraded this Taoist temple into an official imperial palace."
             </div>
           </div>
@@ -421,13 +493,17 @@
       <!-- Slide 7: 后苑茶园 -->
       <div class="ppt-slide" data-slide-index="6">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-          <div class="md:col-span-5 p-6 rounded-2xl bg-emerald-50/50 border border-emerald-200 text-center flex flex-col items-center justify-center min-h-[220px]">
-            <div class="w-16 h-16 rounded-full bg-zen/10 text-zen flex items-center justify-center mb-3">
-              <i data-lucide="coffee" class="w-8 h-8"></i>
+          <div class="md:col-span-5 flex flex-col gap-2.5">
+            <div class="slide-photo-frame group">
+              <img class="photo-zoomable" src="./assets/images/slide-7-tea-garden.jpg" alt="青羊宫第7站：后苑竹林茶园与竹椅实景" loading="lazy">
+              <div class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded flex items-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
+                <i data-lucide="zoom-in" class="w-3 h-3"></i> <span>点击看大图</span>
+              </div>
             </div>
-            <span class="chinese-seal text-xs mb-1" style="border-color:#2D5A3F;color:#2D5A3F;">天府松弛感</span>
-            <span class="font-serif-sc font-bold text-lg text-slate-900">银杏绿竹 · 盖碗香茗</span>
-            <span class="text-xs text-stone-500 font-mono mt-1">Back Garden Gaiwan Tea</span>
+            <div class="flex items-center justify-between px-1">
+              <span class="chinese-seal text-[11px]" style="border-color:#2D5A3F;color:#2D5A3F;">天府松弛感</span>
+              <span class="text-xs text-stone-600 font-serif-sc font-bold">银杏绿竹与盖碗茶座</span>
+            </div>
           </div>
           <div class="md:col-span-7">
             <span class="text-xs font-bold text-zen uppercase tracking-wider block mb-1">Stop 7 · Back Garden Tea House</span>
@@ -440,7 +516,7 @@
               💡 <strong>大白话解释：</strong>花 15 块钱泡一碗茉莉花盖碗茶，靠在咯吱响的竹椅子上，看道长和成都大爷翘着二郎腿剥花生。没有催命电话，没有下周的 KPI，这就是真正的成都 Zen。
             </div>
 
-            <div class="p-3 bg-stone-50 rounded-lg border-l-4 border-zen text-xs sm:text-sm text-stone-800 italic lang-en">
+            <div class="p-3 bg-stone-50 rounded-lg border-l-4 border-zen text-xs sm:text-stone-800 italic lang-en">
               "Behind the sacred halls, bamboo shade opens up. For 2 dollars, you get hot jasmine tea in a porcelain bowl and a creaky bamboo chair. No morning meetings, no deadlines. This slow breath is Chengdu Zen."
             </div>
           </div>
@@ -551,7 +627,7 @@
     </div>
   </section>
 
-  <!-- 第三部分：沉浸式礼仪实操与趣味生辰测试 -->
+  <!-- 第三部分：沉浸式礼仪实操与趣味生辰测试 (手势实景完整无截断展示) -->
   <section id="rituals-fun" class="py-16 max-w-5xl mx-auto px-4 sm:px-6">
     
     <div class="mb-10 text-center">
@@ -569,14 +645,14 @@
       </p>
     </div>
 
-    <!-- 1. 道家太极抱拳礼图示与上香规范 -->
+    <!-- 1. 道家太极抱拳礼图示与上香规范 (照片完整不裁切) -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
       
-      <!-- 太极抱拳礼 -->
+      <!-- 太极抱拳礼 (实景照片 + 动作要领) -->
       <div class="card-paper p-6 rounded-2xl flex flex-col justify-between">
         <div>
           <div class="flex items-center justify-between mb-3">
-            <span class="chinese-seal text-xs">正统手势</span>
+            <span class="chinese-seal text-xs">正统手势实景</span>
             <span class="text-xs font-bold text-tao">Taiji Hand Sign</span>
           </div>
           <h3 class="font-serif-sc font-bold text-lg text-slate-900 mb-2">
@@ -584,22 +660,21 @@
             <span class="lang-en">1. Taoist Taiji Bow</span>
           </h3>
           
+          <!-- 真实手势照片：自适应居中，完整显示双手每一个细节 -->
+          <div class="ritual-photo-frame taiji-hand-frame group">
+            <img class="photo-zoomable" src="./assets/images/taiji-baoquan-real.jpg" alt="道教太极抱拳礼标准手势：左手包右手拳，双拇指相扣" loading="lazy">
+          </div>
+
           <!-- 手势对比图示 -->
-          <div class="p-4 bg-stone-50 rounded-xl border border-stone-200 mb-3 flex items-center justify-around text-center text-xs">
+          <div class="p-3 bg-stone-50 rounded-xl border border-stone-200 mb-3 flex items-center justify-around text-center text-xs">
             <div class="flex flex-col items-center">
-              <div class="w-14 h-14 rounded-full bg-emerald-50 border-2 border-emerald-600 flex items-center justify-center text-emerald-800 mb-1 shadow-sm font-bold text-xs">
-                左包右
-              </div>
-              <span class="font-bold text-emerald-800">✅ 正确动作</span>
-              <span class="text-[10px] text-stone-500">双拇指相扣成阴阳环</span>
+              <span class="font-bold text-emerald-800 text-xs">✅ 正确：左掌包右拳</span>
+              <span class="text-[11px] text-stone-500">双拇指相扣成阴阳环</span>
             </div>
-            <div class="h-10 w-[1px] bg-stone-300"></div>
+            <div class="h-6 w-[1px] bg-stone-300"></div>
             <div class="flex flex-col items-center">
-              <div class="w-14 h-14 rounded-full bg-red-50 border-2 border-red-400 flex items-center justify-center text-red-600 mb-1 font-bold text-xs">
-                合十 ✕
-              </div>
-              <span class="font-bold text-red-700">❌ 严禁合十</span>
-              <span class="text-[10px] text-stone-500">那是佛教掌心贴合动作</span>
+              <span class="font-bold text-red-700 text-xs">❌ 严禁：双手合十</span>
+              <span class="text-[11px] text-stone-500">佛教掌心贴合动作</span>
             </div>
           </div>
 
@@ -612,18 +687,24 @@
         </div>
       </div>
 
-      <!-- 上香规范 -->
+      <!-- 上香规范 (实景照片完整展示) -->
       <div class="card-paper p-6 rounded-2xl flex flex-col justify-between">
         <div>
           <div class="flex items-center justify-between mb-3">
-            <span class="chinese-seal text-xs">敬香常识</span>
+            <span class="chinese-seal text-xs">敬香实景</span>
             <span class="text-xs font-bold text-cinnabar">Lighting Incense</span>
           </div>
           <h3 class="font-serif-sc font-bold text-lg text-slate-900 mb-2">
             <span class="lang-zh">2. 上香步骤（别用嘴吹！）</span>
             <span class="lang-en">2. Lighting Incense (Never blow!)</span>
           </h3>
-          <ul class="text-xs sm:text-sm text-stone-700 space-y-2 mb-3 lang-zh">
+
+          <!-- 上香实景照片：横向全景完整展示 -->
+          <div class="ritual-photo-frame incense-frame group">
+            <img class="photo-zoomable" src="./assets/images/incense-real.jpg" alt="道教殿前三柱清香与双手敬香礼仪实景" loading="lazy">
+          </div>
+
+          <ul class="text-xs sm:text-sm text-stone-700 space-y-1.5 mb-3 lang-zh">
             <li><strong>数3支香：</strong>代表“天、地、人”三才合一，亦代表三清。</li>
             <li><strong>千万别用嘴吹灭火苗：</strong>嘴里有人的杂气，不礼貌。有火苗用手轻轻晃灭。</li>
             <li><strong>齐眉三拜：</strong>双手拿香举到两眉正中，心里默念祈愿，庄重拜三拜。</li>
@@ -707,7 +788,7 @@
 
     </div>
 
-    <!-- 3. 在线“青羊灵签”摇签解签互动 -->
+    <!-- 3. 在线“青羊灵签”摇签解签互动 (签筒实景高图完整无裁切展示) -->
     <div class="card-paper p-6 sm:p-8 rounded-2xl bg-white border-2 border-stone-300">
       <div class="flex items-center gap-2 mb-4">
         <span class="chinese-seal text-xs">求签体验</span>
@@ -723,16 +804,23 @@
 
       <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center bg-stone-50 p-6 rounded-xl border border-stone-200">
         
-        <!-- 签筒动画区 -->
+        <!-- 签筒实景与动画区 (竖向留足高空间，绝不斩头去尾) -->
         <div class="md:col-span-5 flex flex-col items-center justify-center text-center">
-          <div id="fortune-cup" class="w-24 h-32 bg-amber-900 rounded-b-2xl rounded-t-sm shadow-xl flex items-center justify-center relative border-4 border-amber-950 mb-4 transition-transform">
-            <div class="absolute -top-6 flex gap-1">
-              <span class="w-1.5 h-8 bg-amber-200 rounded-t"></span>
-              <span class="w-1.5 h-10 bg-amber-100 rounded-t"></span>
+          
+          <!-- 真实签筒照片：竖向完整展示全部竹签与筒身全貌 -->
+          <div class="ritual-photo-frame fortune-tall-frame w-full max-w-[240px] mb-3 group">
+            <img class="photo-zoomable" src="./assets/images/fortune-real.jpg" alt="青羊宫求签问事竹筒与竹签实景全景" loading="lazy">
+          </div>
+
+          <!-- 动画交互签筒 -->
+          <div id="fortune-cup" class="w-20 h-28 bg-amber-900 rounded-b-2xl rounded-t-sm shadow-xl flex items-center justify-center relative border-4 border-amber-950 mb-3 transition-transform">
+            <div class="absolute -top-5 flex gap-1">
               <span class="w-1.5 h-7 bg-amber-200 rounded-t"></span>
               <span class="w-1.5 h-9 bg-amber-100 rounded-t"></span>
+              <span class="w-1.5 h-6 bg-amber-200 rounded-t"></span>
+              <span class="w-1.5 h-8 bg-amber-100 rounded-t"></span>
             </div>
-            <div class="text-amber-200 font-serif-sc font-bold writing-mode-vertical tracking-widest text-sm">
+            <div class="text-amber-200 font-serif-sc font-bold writing-mode-vertical tracking-widest text-xs">
               青羊靈籤
             </div>
           </div>
@@ -772,7 +860,7 @@
 
   </section>
 
-  <!-- 第四部分：儒家深度揭秘与三教合一 (典雅提炼 + 大白话生活落地) -->
+  <!-- 第四部分：儒家深度揭秘与三教合一 -->
   <section id="confucianism" class="py-16 bg-stone-900 text-stone-100">
     <div class="max-w-5xl mx-auto px-4 sm:px-6">
       

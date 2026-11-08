@@ -1,4 +1,4 @@
-/* 锦官道与禅 - 东方美学精修样式 */
+/* 锦官道与禅 - 东方美学精修样式 (完全解决图片截断与完整性问题) */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Noto+Serif+SC:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
 :root {
@@ -17,8 +17,8 @@ body {
   background-color: var(--color-paper);
   color: var(--color-ink);
   background-image: 
-    radial-gradient(circle at 10% 15%, rgba(30, 78, 84, 0.03) 0%, transparent 20%),
-    radial-gradient(circle at 90% 85%, rgba(45, 90, 63, 0.03) 0%, transparent 25%);
+    radial-gradient(circle at 10% 15%, rgba(30, 78, 84, 0.035) 0%, transparent 22%),
+    radial-gradient(circle at 90% 85%, rgba(45, 90, 63, 0.035) 0%, transparent 25%);
   background-attachment: fixed;
 }
 
@@ -92,19 +92,153 @@ body {
   transform: translateX(0);
 }
 
-/* 语言切换控制：直观且100%保证全站生效 */
-html[data-lang="zh"] .lang-en {
-  display: none !important;
+/* =======================================================
+   图片展示完整性核心修复系统 (确保100%完整、不切头不切底)
+   ======================================================= */
+
+/* 图片通用优化：允许放大镜预览 */
+.photo-zoomable {
+  cursor: zoom-in;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+.photo-zoomable:hover {
+  opacity: 0.94;
 }
 
-html[data-lang="en"] .lang-zh {
-  display: none !important;
+/* 幻灯片内的实景照片：自适应容器，完整展示绝不截断 */
+.slide-photo-frame {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  background: #F4EFE6;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid #E5DFD1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slide-photo-frame img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain; /* 保证整座殿宇、屋顶飞檐完整显示，不裁切 */
+  display: block;
 }
 
+/* 实景相框卡片 (画廊模式) */
+.photo-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 0.85rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(35, 30, 20, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+.photo-card .img-wrap {
+  width: 100%;
+  height: 200px;
+  background: #F5EFE4;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.photo-card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+.photo-card:hover img {
+  transform: scale(1.03);
+}
+.photo-card figcaption {
+  padding: 0.65rem 0.85rem;
+  background: #FFFFFF;
+  border-top: 1px solid #EFEAE0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+/* 礼仪实操照片容器：根据内容定制高度，绝不裁切手部与竹筒全貌 */
+.ritual-photo-frame {
+  width: 100%;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: #F6F2E9;
+  border: 1px solid #E5DFD1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.85rem;
+  padding: 0.5rem;
+}
+/* 太极手势：水平居中完整保留手部轮廓 */
+.taiji-hand-frame {
+  min-height: 170px;
+}
+.taiji-hand-frame img {
+  max-height: 160px;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* 上香照片：自适应横向全景 */
+.incense-frame {
+  min-height: 170px;
+}
+.incense-frame img {
+  max-height: 165px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* 签筒高图：竖向空间充盈，展示从竹签到筒身全景 */
+.fortune-tall-frame {
+  min-height: 260px;
+  max-height: 320px;
+}
+.fortune-tall-frame img {
+  max-height: 300px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* 灯箱全屏大图浮层 (Lightbox) */
+#image-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(15, 18, 16, 0.92);
+  backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+#image-lightbox.active {
+  display: flex;
+}
+#image-lightbox img {
+  max-width: 92vw;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* 语言切换控制：保证全站严格生效 */
+html[data-lang="zh"] .lang-en { display: none !important; }
+html[data-lang="en"] .lang-zh { display: none !important; }
 html[data-lang="bi"] .lang-zh,
-html[data-lang="bi"] .lang-en {
-  display: block !important;
-}
+html[data-lang="bi"] .lang-en { display: block !important; }
 
 /* 部位标签 */
 .zodiac-badge {

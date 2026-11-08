@@ -1,5 +1,5 @@
 /**
- * 锦官道与禅 - 交互核心逻辑 (DBS 彻底去抽象化 · 极度具体人话版)
+ * 锦官道与禅 - 交互核心逻辑 (DBS 彻底去抽象化 · 图片完整性与灯箱预览)
  */
 
 // 1. 六十甲子与太岁神对照
@@ -47,7 +47,7 @@ const TAI_SUI_NAMES = [
   "戊午黎卿大将军", "己未傅党大将军", "庚申毛梓大将军", "辛酉石政大将军", "壬戌洪充大将军", "癸亥虞程大将军"
 ];
 
-// 灵签题库 (去抽象化：大白话解释，直接对应生活抉择)
+// 灵签题库
 const FORTUNE_STICKS = [
   {
     num: "第一签",
@@ -91,7 +91,7 @@ const FORTUNE_STICKS = [
   }
 ];
 
-// 独角铜羊部位解构 (大白话病症对照)
+// 独角铜羊部位解构
 const ZODIAC_PARTS = {
   ear: { animalZh: "子鼠之耳", animalEn: "Rat's Ear", benefitZh: "专治耳鸣、听力差。祈求脑子转得像老鼠一样快，听得懂弦外之音。", benefitEn: "Rub for ringing ears. Sharpens hearing and street-smarts." },
   nose: { animalZh: "丑牛之鼻", animalEn: "Ox's Nose", benefitZh: "专治鼻炎、换季鼻塞。祈求像老黄牛一样呼吸匀畅、底气十足。", benefitEn: "Rub for stuffy nose and sinus relief. Gives you steady stamina." },
@@ -116,6 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initZodiacTool();
   initFortuneSticks();
   initGoatInteraction();
+  initImageLightbox();
 });
 
 // 1. 语言切换
@@ -321,6 +322,52 @@ function initGoatInteraction() {
         if (detailAnimalEn) detailAnimalEn.textContent = info.animalEn;
         if (detailBenefitZh) detailBenefitZh.textContent = info.benefitZh;
         if (detailBenefitEn) detailBenefitEn.textContent = info.benefitEn;
+      }
+    };
+  });
+}
+
+// 6. 图片灯箱全屏预览系统 (彻底解决小图看不全、手机端被截断问题)
+function initImageLightbox() {
+  let lightbox = document.getElementById("image-lightbox");
+  if (!lightbox) {
+    lightbox = document.createElement("div");
+    lightbox.id = "image-lightbox";
+    lightbox.innerHTML = `
+      <div class="relative max-w-4xl max-h-[90vh] flex flex-col items-center">
+        <button id="lightbox-close-btn" class="absolute -top-10 right-0 text-white/80 hover:text-white text-2xl font-bold bg-black/40 rounded-full w-9 h-9 flex items-center justify-center cursor-pointer transition-colors">✕</button>
+        <img id="lightbox-img" src="" alt="大图预览" class="rounded shadow-2xl">
+        <p id="lightbox-caption" class="text-xs sm:text-sm text-stone-200 mt-2.5 text-center font-medium bg-black/60 px-3 py-1 rounded backdrop-blur-sm"></p>
+      </div>
+    `;
+    document.body.appendChild(lightbox);
+
+    const closeBtn = document.getElementById("lightbox-close-btn");
+    closeBtn.onclick = () => lightbox.classList.remove("active");
+    lightbox.onclick = (e) => {
+      if (e.target === lightbox) lightbox.classList.remove("active");
+    };
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && lightbox.classList.contains("active")) {
+        lightbox.classList.remove("active");
+      }
+    });
+  }
+
+  const zoomImages = document.querySelectorAll(".photo-zoomable, .photo-card img, .slide-photo-frame img, .ritual-photo-frame img");
+  zoomImages.forEach(img => {
+    img.style.cursor = "zoom-in";
+    img.onclick = (e) => {
+      e.stopPropagation();
+      const targetSrc = img.getAttribute("src");
+      const altText = img.getAttribute("alt") || "青羊宫文化实景";
+      const lightboxImg = document.getElementById("lightbox-img");
+      const lightboxCaption = document.getElementById("lightbox-caption");
+      if (lightboxImg && targetSrc) {
+        lightboxImg.src = targetSrc;
+        lightboxCaption.textContent = altText;
+        lightbox.classList.add("active");
       }
     };
   });
