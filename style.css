@@ -292,3 +292,8 @@ html[data-lang="bi"] .lang-en { display: block !important; }
 }
 .spot-chip{padding:.8rem .75rem;border:1px solid #e8e2d4;border-radius:.75rem;background:#fff;font-family:"Noto Serif SC",serif;font-weight:700;color:#1b211e;box-shadow:0 3px 10px rgba(35,30,20,.05)}
 .spot-chip small{display:block;margin-top:.25rem;font-family:inherit;font-size:.68rem;font-weight:400;color:#78716c}
+
+/* final visual polish */
+.panda-logo{background:url('./assets/images/panda-logo.svg') center/contain no-repeat;border:0!important}.panda-logo svg{display:none}.panda-logo:before{content:none} .border,.border-2,.border-l-2,.border-l-4,.border-b,.border-y,.border-stone-100,.border-stone-200,.border-stone-300,.border-amber-200,.border-amber-300,.border-emerald-600,.border-red-400,.border-tao,.border-cinnabar{border-color:transparent!important} .card-paper,.photo-card,.spot-chip{border:0!important} .slide-photo{border:0!important} @media(max-width:640px){.slide-photo{height:145px}.photo-card img{height:145px}.card-paper{padding:1rem!important}.qingyang-photo-strip{gap:.65rem}.spot-chip{padding:.6rem .5rem;font-size:.78rem}.spot-chip small{font-size:.62rem}h1{font-size:2rem!important}section{padding-top:2.5rem!important;padding-bottom:2.5rem!important}}
+
+.animate-spin-slow{background:url('./assets/images/bagua-spin.svg') center/contain no-repeat}.animate-spin-slow>*{visibility:hidden}
