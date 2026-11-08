@@ -297,3 +297,6 @@ html[data-lang="bi"] .lang-en { display: block !important; }
 .panda-logo{background:url('./assets/images/panda-logo.svg') center/contain no-repeat;border:0!important}.panda-logo svg{display:none}.panda-logo:before{content:none} .border,.border-2,.border-l-2,.border-l-4,.border-b,.border-y,.border-stone-100,.border-stone-200,.border-stone-300,.border-amber-200,.border-amber-300,.border-emerald-600,.border-red-400,.border-tao,.border-cinnabar{border-color:transparent!important} .card-paper,.photo-card,.spot-chip{border:0!important} .slide-photo{border:0!important} @media(max-width:640px){.slide-photo{height:145px}.photo-card img{height:145px}.card-paper{padding:1rem!important}.qingyang-photo-strip{gap:.65rem}.spot-chip{padding:.6rem .5rem;font-size:.78rem}.spot-chip small{font-size:.62rem}h1{font-size:2rem!important}section{padding-top:2.5rem!important;padding-bottom:2.5rem!important}}
 
 .animate-spin-slow{background:url('./assets/images/bagua-spin.svg') center/contain no-repeat}.animate-spin-slow>*{visibility:hidden}
+.hard-no-borders,[class*="border"]{border-width:0!important;border-color:transparent!important}
+.animate-spin-slow{animation:spin 18s linear infinite!important;visibility:visible!important}
+@keyframes spin{to{transform:rotate(360deg)}}
