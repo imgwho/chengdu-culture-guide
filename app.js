@@ -1,5 +1,5 @@
 /**
- * 锦官道与禅 - 交互核心逻辑
+ * 锦官道与禅 - 交互核心逻辑 (DBS 彻底去抽象化 · 极度具体人话版)
  */
 
 // 1. 六十甲子与太岁神对照
@@ -7,31 +7,31 @@ const TIANGAN = ["甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", 
 const DIZHI = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"];
 
 const ELEMENT_MAP = {
-  "甲": { name: "木", en: "Wood", color: "#2D5A3F", desc: "仁厚宽容，生机盎然。", enDesc: "Vitality, growth, and compassion." },
-  "乙": { name: "木", en: "Wood", color: "#2D5A3F", desc: "柔韧通达，生生不息。", enDesc: "Flexibility and quiet resilience." },
-  "丙": { name: "火", en: "Fire", color: "#B93826", desc: "热情似火，光明磊落。", enDesc: "Passion, clarity, and leadership." },
-  "丁": { name: "火", en: "Fire", color: "#B93826", desc: "内心炽热，洞察幽微。", enDesc: "Inner warmth and deep intuition." },
-  "戊": { name: "土", en: "Earth", color: "#8D6B3C", desc: "厚德载物，沉稳守信。", enDesc: "Stability, grounded trust, and reliability." },
-  "己": { name: "土", en: "Earth", color: "#8D6B3C", desc: "温润包容，心思细腻。", enDesc: "Nurturing, thoughtful, and diplomatic." },
-  "庚": { name: "金", en: "Metal", color: "#965A20", desc: "刚毅坚毅，重视义气。", enDesc: "Strength, integrity, and righteousness." },
-  "辛": { name: "金", en: "Metal", color: "#965A20", desc: "晶莹剔透，追求精良。", enDesc: "Refinement, brilliance, and precision." },
-  "壬": { name: "水", en: "Water", color: "#1E4E54", desc: "智者乐水，奔流不息。", enDesc: "Wisdom, free flow, and broad mind." },
-  "癸": { name: "水", en: "Water", color: "#1E4E54", desc: "润物无声，灵性聪颖。", enDesc: "Gentle nourishment and quiet intuition." }
+  "甲": { name: "木", en: "Wood", color: "#2D5A3F", desc: "像参天大树，扎根深、护他人，天生有担当。", enDesc: "Like a giant forest tree: grounded, protective, resilient." },
+  "乙": { name: "木", en: "Wood", color: "#2D5A3F", desc: "像柔韧绿竹，遇大风弯腰不折，善于变通拐弯。", enDesc: "Like green bamboo: flexible, bends with the storm, never breaks." },
+  "丙": { name: "火", en: "Fire", color: "#B93826", desc: "像正午太阳，直率敞亮，走到哪把能量带到哪。", enDesc: "Like the midday sun: bright, direct, warm, radiating power." },
+  "丁": { name: "火", en: "Fire", color: "#B93826", desc: "像暗夜烛火，不扎眼但暖透人心，第六感极灵。", enDesc: "Like a cozy candle in the dark: gentle, observant, intuitive." },
+  "戊": { name: "土", en: "Earth", color: "#8D6B3C", desc: "像沉稳大山，靠得住、话不多，朋友最信你。", enDesc: "Like a solid mountain: stable, dependable, deeply trustworthy." },
+  "己": { name: "土", en: "Earth", color: "#8D6B3C", desc: "像沃土良田，包容心极大，善于把乱摊子理顺。", enDesc: "Like rich soil: patient, forgiving, turning chaos into growth." },
+  "庚": { name: "金", en: "Metal", color: "#965A20", desc: "像出鞘钢刀，办事利索不拖拉，最恨虚情假意。", enDesc: "Like polished steel: sharp, decisive, honest, values honor." },
+  "辛": { name: "金", en: "Metal", color: "#965A20", desc: "像精致珠宝，对自己要求极高，细节控、有审美。", enDesc: "Like a fine diamond: high standards, aesthetic eye, refined." },
+  "壬": { name: "水", en: "Water", color: "#1E4E54", desc: "像奔腾江河，脑子转得飞快，不撞南墙懂得绕弯。", enDesc: "Like a rushing river: clever, adaptable, flows around obstacles." },
+  "癸": { name: "水", en: "Water", color: "#1E4E54", desc: "像润物春雨，轻声细语却能把硬心肠化开。", enDesc: "Like gentle spring rain: soft-spoken, empathetic, deeply persuasive." }
 };
 
 const ZODIAC_ANIMALS = [
-  { name: "鼠", en: "Rat", desc: "机警聪颖、适应力强", enDesc: "Sharp, witty, resourceful" },
-  { name: "牛", en: "Ox", desc: "勤勉踏实、坚韧可靠", enDesc: "Diligent, dependable, strong" },
-  { name: "虎", en: "Tiger", desc: "勇毅威武、敢为人先", enDesc: "Brave, dynamic, confident" },
-  { name: "兔", en: "Rabbit", desc: "温润优雅、平和敏捷", enDesc: "Gentle, peaceful, intuitive" },
-  { name: "龙", en: "Dragon", desc: "胸怀广阔、尊贵吉祥", enDesc: "Noble, energetic, visionary" },
-  { name: "蛇", en: "Snake", desc: "深思洞察、灵性敏锐", enDesc: "Wise, observant, graceful" },
-  { name: "马", en: "Horse", desc: "豁达开朗、一往无前", enDesc: "Active, energetic, free-spirited" },
-  { name: "羊", en: "Goat", desc: "慈和温良、祥和安泰", enDesc: "Gentle, compassionate, creative" },
-  { name: "猴", en: "Monkey", desc: "灵巧变通、幽默敏捷", enDesc: "Inventive, curious, smart" },
-  { name: "鸡", en: "Rooster", desc: "恪尽职守、守时守信", enDesc: "Punctual, hardworking, observant" },
-  { name: "狗", en: "Dog", desc: "忠诚正直、守望相助", enDesc: "Loyal, honest, protective" },
-  { name: "猪", en: "Pig", desc: "敦厚纯正、乐天知命", enDesc: "Generous, sincere, optimistic" }
+  { name: "鼠", en: "Rat", desc: "嗅觉敏锐，别人没看见的机会你先闻到了", enDesc: "Sharp senses, quick wit, finds the escape route first" },
+  { name: "牛", en: "Ox", desc: "脾气硬但肯下死力气，把活交给你最踏实", enDesc: "Tough, persistent, gets the heavy work done quietly" },
+  { name: "虎", en: "Tiger", desc: "气场两米八，不怕硬仗，天生爱拿主意", enDesc: "Natural leader, loves challenges, brave to the bone" },
+  { name: "兔", en: "Rabbit", desc: "不惹事也不吃闷亏，待人舒服有分寸", enDesc: "Peaceful, well-mannered, agile when danger arrives" },
+  { name: "龙", en: "Dragon", desc: "心气高、胃口大，做事情就想搞点动静", enDesc: "High ambitions, magnetic charm, dreams on a big scale" },
+  { name: "蛇", en: "Snake", desc: "外冷内热，别人瞎咋呼你在暗中观察", enDesc: "Quiet observer, thinks three steps ahead, calm under fire" },
+  { name: "马", en: "Horse", desc: "关不住的野马，爱自由，坐不住办公室", enDesc: "Free spirit, restless energy, hates sitting in a cubicle" },
+  { name: "羊", en: "Goat", desc: "嘴硬心软，看不得别人受委屈，有艺术家脾气", enDesc: "Soft heart, hates cruelty, creative and patient" },
+  { name: "猴", en: "Monkey", desc: "鬼点子最多，冷场救星，绝不受憋屈", enDesc: "Quick-thinking, humor master, always finds a workaround" },
+  { name: "鸡", en: "Rooster", desc: "自带闹钟体质，守时严谨，眼里揉不得沙子", enDesc: "Punctual, organized, zero tolerance for sloppy mistakes" },
+  { name: "狗", en: "Dog", desc: "认死理讲义气，对朋友护短到底", enDesc: "Fiercely loyal, honest, protects friends no matter what" },
+  { name: "猪", en: "Pig", desc: "吃嘛嘛香、心态极好，老天爷赏饭吃的天生赢家", enDesc: "Warm-hearted, loves good food, shakes off stress easily" }
 ];
 
 const TAI_SUI_NAMES = [
@@ -47,67 +47,66 @@ const TAI_SUI_NAMES = [
   "戊午黎卿大将军", "己未傅党大将军", "庚申毛梓大将军", "辛酉石政大将军", "壬戌洪充大将军", "癸亥虞程大将军"
 ];
 
-// 灵签题库
+// 灵签题库 (去抽象化：大白话解释，直接对应生活抉择)
 const FORTUNE_STICKS = [
   {
     num: "第一签",
     numEn: "Stick No. 1",
-    level: "上上大吉 · 混元乾坤",
-    levelEn: "Greatest Fortune · Universal Harmony",
+    level: "上上大吉 · 顺势而飞",
+    levelEn: "Top Fortune · Clear Skies Ahead",
     poem: "巍巍独步向云间，玉宇琼楼任往还。凡事若逢神道佑，清风明月一开颜。",
-    meaning: "大道坦途，顺应自然规律，不与万物争先而万物皆顺。心中所求之事，当如水般顺势而为，自能水到渠成。",
-    enPoem: "Walk softly through mist and clouds; peace fills your heart as nature allows. When you flow like clear water, fortune greets you everywhere.",
-    enMeaning: "Taoist Wisdom: Do not force things. Let events unfold in their natural rhythm, and success will come without friction."
+    meaning: "【别死磕，顺着风走】：眼下别去和死规定硬顶，找准缝隙顺着滑过去。你苦苦发愁的那件事，放低姿态别绷着，下周自然有转机。",
+    enPoem: "Step into the open breeze; clear skies open through the trees. When you stop fighting the rock, the path appears.",
+    enMeaning: "Taoist Reality: Stop banging your head against the wall. Step aside, take the easier route, and let things fall into place naturally."
   },
   {
     num: "第十二签",
     numEn: "Stick No. 12",
-    level: "上吉 · 紫气东来",
-    levelEn: "Auspicious · The Eastern Purple Mist",
+    level: "上吉 · 骑牛出关",
+    levelEn: "Auspicious · The Old Sage Moves On",
     poem: "函谷关前紫气升，青牛西去道初生。莫愁前路无知己，一念清心万法明。",
-    meaning: "老子出函谷之象。过去积累的智慧与底蕴正迎来转机，保持心念专注，不念过去、不畏将来。",
-    enPoem: "Purple mist gathers as the ancient sage rides west. Keep your mind calm and quiet; the path ahead will reveal itself clearly.",
-    enMeaning: "Zen Wisdom: When you enjoy the present journey and stay mindful, tomorrow's worries vanish on their own."
+    meaning: "【别纠结过去，翻篇】：老子骑着青牛出了函谷关，过去的事一笔勾销。手头这事别怕没人理解，把今天的每一步走实，剩下的时间会给你答案。",
+    enPoem: "Riding the ox into the sunset, leave the noisy fortress behind. Clean hands, quiet head, the road is yours.",
+    enMeaning: "Zen Reality: Yesterday's mess is already done. Tomorrow hasn't arrived. Close your eyes, breathe, and only handle the one task right in front of you."
   },
   {
     num: "第二十八签",
     numEn: "Stick No. 28",
-    level: "中吉 · 灵羊抚身",
-    levelEn: "Fortune of Health · The Bronze Goat Blessing",
+    level: "中吉 · 歇脚养精",
+    levelEn: "Health Fortune · Touch The Bronze Goat",
     poem: "古刹松阴岁月长，灵羊抚拭保身康。养精蓄锐循天理，自是家和百事祥。",
-    meaning: "身心调适之吉。需注意作息平和与身体调理，善待父母家人。百善孝为先，身心同健则事业自顺。",
-    enPoem: "Under ancient pines, touch the bronze goat for peace and health. Care for your body and respect your elders, and all will be well.",
-    enMeaning: "Confucian & Taoist Balance: Work hard for your family, but never forget to rest your body and nourish your spirit."
+    meaning: "【身体在报警，先睡饱】：拼命不是透支。最近肠胃或腰椎已经在抗议了。今晚别熬夜刷手机，给家里长辈打个电话问候一声，心里踏实了，病痛自然退。",
+    enPoem: "Beneath the pine, let the copper goat cool your fever. Sleep deeply tonight; you can't protect your family with a broken back.",
+    enMeaning: "Confucian & Taoist Reality: Hard work is noble, but exhaustion is reckless. Go to bed on time, drink warm tea, and call your parents."
   },
   {
     num: "第三十六签",
     numEn: "Stick No. 36",
-    level: "吉 · 竹影煎茶",
-    levelEn: "Peaceful Mind · Tea Beneath Bamboo",
+    level: "吉 · 浮生偷闲",
+    levelEn: "Mind Ease · A Cup of Gaiwan Tea",
     poem: "竹径清风鸟语幽，盖碗新茶润笔喉。世间多少营营客，偷得浮生半日休。",
-    meaning: "放下焦躁，得闲饮茶。所虑之事多为自寻烦恼，不妨暂歇片刻，在成都式的慢生活中找到答案。",
-    enPoem: "Green bamboo whispers as wild birds sing; hot tea soothes the tired mind. Why rush in a hurry? True clarity lives in quiet moments.",
-    enMeaning: "Chengdu Zen: Pause. Take a breath, drink hot tea, and return to your challenges with an unclouded mind."
+    meaning: "【天塌不下来，喝杯茶先】：满脑子都是做不完的工作和焦虑？地球离了你照样转。坐到竹椅子上，把这碗茉莉花茶喝透，半小时后回来，脑子比谁都清楚。",
+    enPoem: "Green leaves shade the bamboo stool; steam rises from the porcelain bowl. The world can wait for thirty minutes.",
+    enMeaning: "Chengdu Zen Reality: 90% of what you worry about never happens. Put your phone face-down, take three deep sips of hot tea, and reset."
   }
 ];
 
-// 独角铜羊部位解构
+// 独角铜羊部位解构 (大白话病症对照)
 const ZODIAC_PARTS = {
-  ear: { animalZh: "子鼠之耳", animalEn: "Rat's Ear", benefitZh: "祛耳鸣、聪耳开窍，祈求听觉敏锐，处世机敏通达。", benefitEn: "For clear hearing, sharp perception and adaptive wit." },
-  nose: { animalZh: "丑牛之鼻", animalEn: "Ox's Nose", benefitZh: "祛鼻疾、呼吸顺畅，祈求勤勉踏实、身强力壮。", benefitEn: "For smooth breathing and the enduring strength of an ox." },
-  claw: { animalZh: "寅虎之爪", animalEn: "Tiger's Claw", benefitZh: "祛手脚筋骨酸痛，祈求行动矫健威猛，避邪驱灾。", benefitEn: "Relieves muscle soreness and brings courageous vitality." },
-  back: { animalZh: "卯兔之背", animalEn: "Rabbit's Back", benefitZh: "祛脊椎腰酸背痛，抚平劳累，祈求敏捷安宁。", benefitEn: "Eases back tension and brings peaceful flexibility." },
-  horn: { animalZh: "辰龙之独角", animalEn: "Dragon's Single Horn", benefitZh: "独角贯顶，祛偏头痛，启发智慧灵性，步步高升。", benefitEn: "Clears headaches, inspires sharp wisdom and noble growth." },
-  tail: { animalZh: "巳蛇之尾", animalEn: "Snake's Tail", benefitZh: "祛下肢腰疾，灵活自如，象征逢凶化吉与生机绵延。", benefitEn: "Promotes lower-body ease and continuous life renewal." },
-  mouth: { animalZh: "午马之嘴", animalEn: "Horse's Mouth", benefitZh: "祛口舌咽喉之疾，祈求言谈广纳善缘、马到成功。", benefitEn: "Guards throat comfort and brings articulate success." },
-  beard: { animalZh: "未羊之须", animalEn: "Goat's Beard", benefitZh: "祛面部风疾与疲惫，祈求温和慈悲、长寿安泰。", benefitEn: "Brings longevity, gentle kindness and peaceful mood." },
-  neck: { animalZh: "申猴之颈", animalEn: "Monkey's Neck", benefitZh: "祛颈椎僵直不适，转动自如，寓意变通机灵。", benefitEn: "Relieves neck stiffness, encouraging flexible adaptability." },
-  eye: { animalZh: "酉鸡之眼", animalEn: "Rooster's Eye", benefitZh: "祛目涩眼疾、明目开眼，破晓见光，明察秋毫。", benefitEn: "Brightens vision and sharpens observational clarity." },
-  belly: { animalZh: "戌狗之腹", animalEn: "Dog's Belly", benefitZh: "摸羊腹祛脾胃虚寒与消化不畅，保胃气和顺（最受欢迎部位）。", benefitEn: "Most popular: rub the belly for digestive comfort and calm." },
-  hip: { animalZh: "亥猪之臀", animalEn: "Pig's Hip", benefitZh: "祛骨盆与下半身酸困，寓意安泰丰盈、诸事圆满。", benefitEn: "Relieves physical fatigue, symbolizing wholesome fulfillment." }
+  ear: { animalZh: "子鼠之耳", animalEn: "Rat's Ear", benefitZh: "专治耳鸣、听力差。祈求脑子转得像老鼠一样快，听得懂弦外之音。", benefitEn: "Rub for ringing ears. Sharpens hearing and street-smarts." },
+  nose: { animalZh: "丑牛之鼻", animalEn: "Ox's Nose", benefitZh: "专治鼻炎、换季鼻塞。祈求像老黄牛一样呼吸匀畅、底气十足。", benefitEn: "Rub for stuffy nose and sinus relief. Gives you steady stamina." },
+  claw: { animalZh: "寅虎之爪", animalEn: "Tiger's Claw", benefitZh: "专治鼠标手、手腕腱鞘炎与老寒腿。祈求抓钱有力、手脚利索。", benefitEn: "Rub for mouse-wrist and joint pain. Keeps your grip strong." },
+  back: { animalZh: "卯兔之背", animalEn: "Rabbit's Back", benefitZh: "专治办公室久坐腰酸背痛。祈求脊椎像兔子一样轻盈、跳得动路。", benefitEn: "Rub for lower-back stiffness from long desk hours." },
+  horn: { animalZh: "辰龙之独角", animalEn: "Dragon's Single Horn", benefitZh: "全羊最亮部位！专治偏头痛、熬夜脑胀。祈求头脑清醒、出门高人一筹。", benefitEn: "The shiniest spot! Rub for headaches, migraines, and big career luck." },
+  tail: { animalZh: "巳蛇之尾", animalEn: "Snake's Tail", benefitZh: "专治坐骨神经痛、腰间盘突出。祈求下半身灵活不僵硬。", benefitEn: "Rub for sciatica and hip aches. Keeps your spine flexible." },
+  mouth: { animalZh: "午马之嘴", animalEn: "Horse's Mouth", benefitZh: "专治嗓子干哑、咽喉炎。祈求出门跟人打交道不吵架、话说得好听。", benefitEn: "Rub for sore throat and speech fatigue. Brings smooth talk." },
+  beard: { animalZh: "未羊之须", animalEn: "Goat's Beard", benefitZh: "专治面部抽搐、法令纹疲惫。祈求脸上少点火气，活得长寿松弛。", benefitEn: "Rub for jaw clenching and facial fatigue. Brings long, peaceful life." },
+  neck: { animalZh: "申猴之颈", animalEn: "Monkey's Neck", benefitZh: "专治低头看手机落枕、富贵包。祈求脖子转动灵活，别死脑筋。", benefitEn: "Rub for stiff neck from phone scrolling. Brings agile thinking." },
+  eye: { animalZh: "酉鸡之眼", animalEn: "Rooster's Eye", benefitZh: "专治看电脑眼干、近视眼酸。祈求像大公鸡破晓一样两眼放光。", benefitEn: "Rub for dry eyes from screen fatigue. Clears eyesight." },
+  belly: { animalZh: "戌狗之腹", animalEn: "Dog's Belly", benefitZh: "全场最热部位！专治胃胀、积食、拉肚子。祈求吃嘛嘛香、肠胃温乎。", benefitEn: "Crowd favorite! Rub the belly for stomach cramps and digestion." },
+  hip: { animalZh: "亥猪之臀", animalEn: "Pig's Hip", benefitZh: "专治坐骨骨盆酸疼。祈求吃饱睡香、心宽体胖无烦恼。", benefitEn: "Rub for hip fatigue and pelvis ache. Symbol of wealth and good sleep." }
 };
 
-// 全局状态
 let currentSlide = 0;
 const totalSlides = 7;
 
@@ -126,11 +125,11 @@ function initLanguageSwitcher() {
   setLanguage(savedLang);
 
   langBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
+    btn.onclick = () => {
       const targetLang = btn.getAttribute("data-set-lang");
       setLanguage(targetLang);
       localStorage.setItem("preferred_lang", targetLang);
-    });
+    };
   });
 }
 
@@ -154,20 +153,18 @@ function initPptDeck() {
 
   if (!prevBtn || !nextBtn || !dotsContainer) return;
 
-  // 动态创建 7 个圆点
   dotsContainer.innerHTML = "";
   for (let i = 0; i < totalSlides; i++) {
     const dot = document.createElement("button");
     dot.className = `h-2.5 rounded-full transition-all ${i === 0 ? 'bg-tao w-6' : 'bg-stone-300 w-2.5'}`;
     dot.setAttribute("aria-label", `Slide ${i + 1}`);
-    dot.addEventListener("click", () => goToSlide(i));
+    dot.onclick = () => goToSlide(i);
     dotsContainer.appendChild(dot);
   }
 
   prevBtn.onclick = () => goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
   nextBtn.onclick = () => goToSlide((currentSlide + 1) % totalSlides);
 
-  // 键盘左右键支持
   document.addEventListener("keydown", (e) => {
     if (e.key === "ArrowLeft") {
       goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
@@ -176,7 +173,6 @@ function initPptDeck() {
     }
   });
 
-  // 视图切换（PPT vs 平铺）
   const btnPpt = document.getElementById("btn-mode-ppt");
   const btnGrid = document.getElementById("btn-mode-grid");
   const pptView = document.getElementById("ppt-deck-view");
@@ -256,7 +252,7 @@ function initZodiacTool() {
 
     document.getElementById("res-birth-date").textContent = `${year}年 ${month}月 ${day}日 (${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day})`;
     document.getElementById("res-zodiac-zh").textContent = `${zodiac.name} (${zodiac.desc})`;
-    document.getElementById("res-zodiac-en").textContent = `Year of the ${zodiac.en} (${zodiac.enDesc})`;
+    document.getElementById("res-zodiac-en").textContent = `Year of the ${zodiac.en}: ${zodiac.enDesc}`;
     
     const elemBadge = document.getElementById("res-element-badge");
     elemBadge.textContent = `${element.name} (${element.en})`;
