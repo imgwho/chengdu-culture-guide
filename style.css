@@ -298,5 +298,6 @@ html[data-lang="bi"] .lang-en { display: block !important; }
 
 .animate-spin-slow{background:url('./assets/images/bagua-spin.svg') center/contain no-repeat}.animate-spin-slow>*{visibility:hidden}
 .hard-no-borders,[class*="border"]{border-width:0!important;border-color:transparent!important}
+*,*::before,*::after{border-style:none!important;border-width:0!important}
 .animate-spin-slow{animation:spin 18s linear infinite!important;visibility:visible!important}
 @keyframes spin{to{transform:rotate(360deg)}}
